@@ -461,6 +461,15 @@
             transform: translateX(4px);
         }
 
+        .project-thumb {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+        }
+
         .project-name {
             font-size: 1.1rem;
             font-weight: 600;
@@ -723,16 +732,16 @@
             <div class="spotlight-grid">
                 <!-- HiViewer -->
                 <div class="spotlight-card fade-in">
-                    <img src="https://raw.githubusercontent.com/quoctran-2608/HiViewer/main/screenshots/Screenshot.png" alt="HiViewer" class="spotlight-image">
+                    <img src="images/projects/hiviewer.png" alt="HiViewer" class="spotlight-image">
                     <div class="spotlight-content">
                         <span class="spotlight-badge">🖥️ Desktop App</span>
                         <h3 class="spotlight-title">HiViewer</h3>
-                        <p class="spotlight-tagline">Điều khiển máy tính từ xa qua Internet - Như TeamViewer, made in Vietnam</p>
+                        <p class="spotlight-tagline">Phần mềm điều khiển máy tính từ xa qua Internet, tương tự TeamViewer & UltraViewer. Hỗ trợ streaming real-time, điều khiển chuột/bàn phím, bảo mật với ID & Password riêng cho mỗi phiên. Tối ưu băng thông với nén JPEG + Dirty Rectangles.</p>
                         <div class="spotlight-tech">
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">.NET 8</span>
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Real-time</span>
+                            <span class="tech-tag">Socket</span>
+                            <span class="tech-tag">Real-time Streaming</span>
                         </div>
                         <div class="spotlight-links">
                             <a href="https://github.com/quoctran-2608/HiViewer" target="_blank" class="spotlight-link link-github">GitHub</a>
@@ -742,17 +751,15 @@
 
                 <!-- CozyKey -->
                 <div class="spotlight-card fade-in">
-                    <div style="width:100%;height:200px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center;">
-                        <span style="font-size:4rem;">⌨️</span>
-                    </div>
+                    <img src="images/projects/cozykey.png" alt="CozyKey" class="spotlight-image">
                     <div class="spotlight-content">
                         <span class="spotlight-badge">🖥️ Desktop App</span>
                         <h3 class="spotlight-title">CozyKey</h3>
-                        <p class="spotlight-tagline">Bộ gõ tiếng Việt thế hệ mới - Không chỉ gõ, còn giúp bạn tập trung với Deep Work & Mindfulness</p>
+                        <p class="spotlight-tagline">Bộ gõ tiếng Việt tối giản thay thế Unikey/EVKey. Hỗ trợ Telex & VNI, phím Z phân rã. Tích hợp Deep Work (25/40/60 phút), nhắc thư giãn Mindfulness, 5 kiểu âm thanh gõ phím chill, và hoán đổi phím cho lập trình viên.</p>
                         <div class="spotlight-tech">
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">.NET 8</span>
-                            <span class="tech-tag">System Hook</span>
+                            <span class="tech-tag">Keyboard Hook</span>
                             <span class="tech-tag">Telex/VNI</span>
                         </div>
                         <div class="spotlight-links">
@@ -763,15 +770,16 @@
 
                 <!-- SocialWriterAI -->
                 <div class="spotlight-card fade-in">
-                    <img src="https://raw.githubusercontent.com/quoctran-2608/SocialWriterAI/main/screenshots/trang_chu.png" alt="SocialWriterAI" class="spotlight-image">
+                    <img src="images/projects/socialwriterai.png" alt="SocialWriterAI" class="spotlight-image">
                     <div class="spotlight-content">
                         <span class="spotlight-badge">🌐 Web App</span>
                         <h3 class="spotlight-title">SocialWriterAI</h3>
-                        <p class="spotlight-tagline">AI viết bài & đăng tự động 6 mạng xã hội - Facebook, Instagram, LinkedIn, X, Threads, Pinterest</p>
+                        <p class="spotlight-tagline">Trợ lý AI viết bài & đăng tự động lên 6 mạng xã hội (Facebook, Instagram, LinkedIn, X, Threads, Pinterest). Tích hợp đa AI (Gemini, Claude, OpenAI), tạo ảnh AI (Imagen, DALL-E), lên lịch đăng bài, quản lý thương hiệu.</p>
                         <div class="spotlight-tech">
                             <span class="tech-tag">Next.js 15</span>
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag">PostgreSQL</span>
                             <span class="tech-tag">AI APIs</span>
                         </div>
                         <div class="spotlight-links">
@@ -801,12 +809,14 @@
                     </h3>
                     
                     <div class="project-card">
+                        <img src="images/projects/focusflow.png" alt="FocusFlow" class="project-thumb">
                         <h4 class="project-name">FocusFlow</h4>
-                        <p class="project-desc">Ứng dụng quản lý công việc với triết lý "Phễu 3-1", Habit Tracker và Mood Character độc đáo</p>
+                        <p class="project-desc">Ứng dụng quản lý công việc & thói quen với triết lý độc đáo "Phễu Lọc 3-1": Thu gọn từ nhiều việc xuống 3 việc quan trọng, rồi 1 việc ưu tiên. Tích hợp Focus Timer với âm thanh ambient, Habit Tracker theo 3 nhóm Thân-Tâm-Trí, và Mood Character phản ánh chất lượng ngày sống.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">TailwindCSS</span>
                             <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">SortableJS</span>
                         </div>
                         <div class="project-links">
                             <a href="https://agrinomics.sytes.net/focusflow" target="_blank" class="project-link">Demo →</a>
@@ -822,11 +832,14 @@
                     </h3>
                     
                     <div class="project-card">
+                        <img src="images/projects/customer-segmentation.png" alt="Customer Segmentation" class="project-thumb">
                         <h4 class="project-name">Customer Segmentation</h4>
-                        <p class="project-desc">Đồ án phân tích khách hàng bằng Machine Learning - Đạt điểm tối đa khóa học Cyberlearn</p>
+                        <p class="project-desc">Đồ án phân tích & phân khúc khách hàng với dashboard Streamlit đa trang: Chân dung khách hàng, Hành vi mua sắm, Mối quan hệ biến số, Phân khúc RFM, Công cụ dự đoán, và Chatbot AI hỏi đáp dữ liệu (Gemini). Đạt điểm tối đa khóa học Basic Data Analyst tại Cyberlearn.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">RFM Analysis</span>
                             <span class="tech-tag">Gemini AI</span>
                         </div>
                         <div class="project-links">
@@ -842,11 +855,13 @@
                     </h3>
                     
                     <div class="project-card">
+                        <img src="images/projects/maizone.png" alt="MaiZone" class="project-thumb">
                         <h4 class="project-name">MaiZone</h4>
-                        <p class="project-desc">"Do one thing at a time" - Extension giúp tập trung sâu, nhắc nghỉ ngơi và giữ sức khỏe</p>
+                        <p class="project-desc">"Do one thing at a time" - Extension chặn sao nhãng bằng Intent Gate (hỏi lý do trước khi vào Facebook/YouTube), Deep Work 40 phút với badge countdown, nhắc thư giãn mỗi 15 phút, nhắc tập thể dục mỗi 45 phút, và ClipMD copy Markdown nhanh.</p>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Chrome API</span>
+                            <span class="tech-tag">Manifest V3</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/quoctran-2608/MaiZone" target="_blank" class="project-link">GitHub →</a>
@@ -854,11 +869,13 @@
                     </div>
 
                     <div class="project-card">
+                        <img src="images/projects/scanvui.png" alt="ScanVui" class="project-thumb">
                         <h4 class="project-name">ScanVui</h4>
-                        <p class="project-desc">DevTools Extension - Quét SEO, Accessibility, Performance, Element Picker & Media Scanner</p>
+                        <p class="project-desc">DevTools Extension đa năng: Quét SEO/Accessibility/Performance với điểm số trực quan, Element Picker lấy CSS/XPath/Playwright selector, mô phỏng khiếm thị, phát hiện Tech Stack 20+ frameworks, Media Scanner tải ảnh/video hàng loạt, xuất báo cáo đa định dạng.</p>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Chrome API</span>
+                            <span class="tech-tag">Manifest V3</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/quoctran-2608/ScanVui" target="_blank" class="project-link">GitHub →</a>
