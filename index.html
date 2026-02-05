@@ -516,6 +516,46 @@
             background: var(--bg-primary);
         }
 
+        .skills-special {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-1);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         .tech-grid {
             display: flex;
             flex-wrap: wrap;
@@ -591,6 +631,77 @@
 
         .contact-value {
             font-weight: 600;
+        }
+
+        /* About */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Education */
+        .education {
+            background: var(--bg-primary);
+        }
+
+        .education-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center;
+            min-width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            border-color: var(--accent-1);
+            transform: translateY(-4px);
+        }
+
+        .education-year {
+            display: inline-block;
+            padding: 4px 16px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .education-school {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .education-degree {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -690,9 +801,10 @@
         <div class="nav-content">
             <div class="nav-logo">TranQuoc.dev</div>
             <ul class="nav-links">
-                <li><a href="#spotlight">Spotlight</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#spotlight">Projects</a></li>
+                <li><a href="#tech">Skills</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -708,7 +820,7 @@
             <img src="images/Tran-Duy-Quoc.jpg" alt="Trần Duy Quốc" class="hero-avatar">
             <h1 class="hero-title">Trần Duy Quốc</h1>
             <p class="hero-subtitle">Software Developer</p>
-            <p class="hero-tagline">"Building tools that help people focus, create & connect"</p>
+            <p class="hero-tagline">"Nền tảng kỹ thuật giúp tôi nói chuyện với máy tính, nhưng nền tảng Nhân văn giúp tôi hiểu con người"</p>
             <div class="hero-links">
                 <a href="#spotlight" class="btn btn-primary">
                     <span>🚀</span> Xem dự án
@@ -716,6 +828,20 @@
                 <a href="https://github.com/quoctran-2608" target="_blank" class="btn btn-secondary">
                     <span>📂</span> GitHub
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">About</p>
+                <h2 class="section-title">Giới thiệu</h2>
+            </div>
+            <div class="about-content fade-in">
+                <p>Tôi là một Developer với sự giao thoa đặc biệt giữa tư duy logic của một nhà phát triển phần mềm và chiều sâu văn hóa từ nền tảng Khoa học Xã hội & Nhân văn.</p>
+                <p>Với khả năng tập trung sâu (Deep Work) và niềm đam mê công nghệ, tôi đã tự học và ứng dụng hiệu quả AI cùng tự động hóa để xây dựng các sản phẩm thực tế, giúp tăng hiệu suất công việc vượt trội.</p>
             </div>
         </div>
     </section>
@@ -891,10 +1017,30 @@
         <div class="container">
             <div class="section-header fade-in">
                 <p class="section-label">Skills</p>
-                <h2 class="section-title">Tech Stack</h2>
-                <p class="section-desc">Công nghệ tôi sử dụng để xây dựng sản phẩm</p>
+                <h2 class="section-title">Kỹ năng & Công nghệ</h2>
+                <p class="section-desc">Năng lực và công nghệ tôi sử dụng</p>
             </div>
 
+            <!-- Special Skills -->
+            <div class="skills-special fade-in">
+                <div class="skill-card">
+                    <span class="skill-icon">🤖</span>
+                    <h4>AI & Vibecoding</h4>
+                    <p>Xây dựng phần mềm Production-ready với AI, áp dụng tư duy Looping cho logic phức tạp</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">⚡</span>
+                    <h4>Automation</h4>
+                    <p>Workflow tự động hóa với n8n, Make kết hợp API</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🎯</span>
+                    <h4>Deep Work</h4>
+                    <p>Khả năng tập trung sâu, tư duy hướng kết quả, kỷ luật cao</p>
+                </div>
+            </div>
+
+            <!-- Tech Grid -->
             <div class="tech-grid fade-in">
                 <div class="tech-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="tech-icon">
@@ -972,6 +1118,34 @@
                         <div class="contact-value">quoctran-2608</div>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Education</p>
+                <h2 class="section-title">Học vấn</h2>
+            </div>
+
+            <div class="education-grid fade-in">
+                <div class="education-card">
+                    <div class="education-year">2026</div>
+                    <h4 class="education-school">CyberSoft Academy</h4>
+                    <p class="education-degree">Chứng chỉ Fundamentals of Data Analyst and AI Automation</p>
+                </div>
+                <div class="education-card">
+                    <div class="education-year">2018</div>
+                    <h4 class="education-school">ĐH Khoa học Xã hội và Nhân văn TP.HCM</h4>
+                    <p class="education-degree">Cử nhân Ngôn ngữ học</p>
+                </div>
+                <div class="education-card">
+                    <div class="education-year">2010</div>
+                    <h4 class="education-school">FPT Aptech</h4>
+                    <p class="education-degree">Advanced Diploma in Software Engineering</p>
+                </div>
             </div>
         </div>
     </section>
