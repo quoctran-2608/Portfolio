@@ -437,10 +437,15 @@
             background: var(--bg-secondary);
         }
 
-        /* Featured Extension */
-        .featured-extension {
+        /* Featured Extension & Web App */
+        .featured-extension,
+        .featured-webapp {
             background: var(--bg-primary);
             padding: 80px 0;
+        }
+
+        .featured-webapp {
+            background: var(--bg-secondary);
         }
 
         .featured-card {
@@ -523,8 +528,15 @@
             gap: 32px;
         }
 
+        .category-grid.two-columns {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 900px) {
-            .category-grid {
+            .category-grid,
+            .category-grid.two-columns {
                 grid-template-columns: 1fr;
             }
         }
@@ -1067,6 +1079,51 @@
         </div>
     </section>
 
+    <!-- Featured Web App -->
+    <section class="featured-webapp">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Featured</p>
+                <h2 class="section-title">Web App nổi bật</h2>
+            </div>
+
+            <div class="featured-card fade-in">
+                <div class="featured-image">
+                    <img src="images/projects/focusflow.jpg" alt="FocusFlow">
+                </div>
+                <div class="featured-content">
+                    <div class="featured-badges">
+                        <span class="spotlight-badge">🌐 Web App</span>
+                        <span class="spotlight-badge ai-badge">🤖 AI Vibecoded</span>
+                    </div>
+                    <h3 class="featured-title">FocusFlow</h3>
+                    <p class="featured-tagline">"Dòng chảy đến thành tựu" - Ứng dụng quản lý công việc, tập trung hiệu quả và nuôi dưỡng thói quen tốt mỗi ngày.</p>
+                    <ul class="featured-features">
+                        <li>🎯 <strong>Triết lý "Phễu Lọc 3-1"</strong> - Thu gọn từ nhiều việc → 3 việc quan trọng → 1 việc ưu tiên</li>
+                        <li>⏱️ <strong>Focus Timer</strong> - Pomodoro với 4 preset (15/25/45/60 phút) và âm thanh ambient</li>
+                        <li>💪 <strong>Habit Tracker</strong> - Theo dõi thói quen theo 3 nhóm Thân-Tâm-Trí</li>
+                        <li>😊 <strong>Mood Character</strong> - Nhân vật phản ánh chất lượng ngày sống</li>
+                        <li>📱 <strong>Responsive</strong> - Hoạt động mượt mà trên mọi thiết bị</li>
+                    </ul>
+                    <div class="featured-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">TailwindCSS</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">SortableJS</span>
+                    </div>
+                    <div class="featured-links">
+                        <a href="https://agrinomics.sytes.net/focusflow" target="_blank" class="btn btn-primary">
+                            <span>🚀</span> Xem Demo
+                        </a>
+                        <a href="https://github.com/quoctran-2608/FocusFlow" target="_blank" class="btn btn-secondary">
+                            <span>📂</span> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- More Projects -->
     <section class="more-projects" id="projects">
         <div class="container">
@@ -1076,33 +1133,7 @@
                 <p class="section-desc">Đa dạng từ Web Apps, Data Science đến Browser Extensions</p>
             </div>
 
-            <div class="category-grid">
-                <!-- Web Apps -->
-                <div class="category-section fade-in">
-                    <h3 class="category-title">
-                        <span>🌐</span> Web Apps
-                    </h3>
-                    
-                    <div class="project-card">
-                        <img src="images/projects/focusflow.jpg" alt="FocusFlow" class="project-thumb">
-                        <div class="project-badges">
-                            <span class="project-badge ai-badge">🤖 AI Vibecoded</span>
-                        </div>
-                        <h4 class="project-name">FocusFlow</h4>
-                        <p class="project-desc">Ứng dụng quản lý công việc & thói quen với triết lý độc đáo "Phễu Lọc 3-1": Thu gọn từ nhiều việc xuống 3 việc quan trọng, rồi 1 việc ưu tiên. Tích hợp Focus Timer với âm thanh ambient, Habit Tracker theo 3 nhóm Thân-Tâm-Trí, và Mood Character phản ánh chất lượng ngày sống.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">SortableJS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://agrinomics.sytes.net/focusflow" target="_blank" class="project-link">Demo →</a>
-                            <a href="https://github.com/quoctran-2608/FocusFlow" target="_blank" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="category-grid two-columns">
                 <!-- Data & AI -->
                 <div class="category-section fade-in">
                     <h3 class="category-title">
