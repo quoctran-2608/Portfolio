@@ -437,6 +437,86 @@
             background: var(--bg-secondary);
         }
 
+        /* Featured Extension */
+        .featured-extension {
+            background: var(--bg-primary);
+            padding: 80px 0;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 32px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .featured-badges {
+            margin-bottom: 16px;
+        }
+
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .featured-tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .featured-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .featured-features li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .featured-features li:last-child {
+            border-bottom: none;
+        }
+
+        .featured-features strong {
+            color: var(--text-primary);
+        }
+
+        .featured-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .featured-links {
+            display: flex;
+            gap: 12px;
+        }
+
         .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -946,6 +1026,47 @@
         </div>
     </section>
 
+    <!-- Featured Extension -->
+    <section class="featured-extension">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Featured</p>
+                <h2 class="section-title">Extension nổi bật</h2>
+            </div>
+
+            <div class="featured-card fade-in">
+                <div class="featured-image">
+                    <img src="images/projects/maizone.jpg" alt="MaiZone">
+                </div>
+                <div class="featured-content">
+                    <div class="featured-badges">
+                        <span class="spotlight-badge">🧩 Chrome Extension</span>
+                        <span class="spotlight-badge ai-badge">🤖 AI Vibecoded</span>
+                    </div>
+                    <h3 class="featured-title">MaiZone</h3>
+                    <p class="featured-tagline">"Do one thing at a time" - Extension giúp bạn tập trung sâu, nhắc nghỉ ngơi đúng lúc, và giữ sức khỏe khi làm việc trên máy tính.</p>
+                    <ul class="featured-features">
+                        <li>🚧 <strong>Intent Gate</strong> - Hỏi lý do trước khi vào Facebook/YouTube, cho phép 5 phút</li>
+                        <li>🎯 <strong>Deep Work 40 phút</strong> - Badge countdown, chặn cả tin nhắn</li>
+                        <li>🧘 <strong>Nhắc thư giãn</strong> - Mỗi 15 phút với lời nhắc nhẹ nhàng</li>
+                        <li>🏋️ <strong>Nhắc tập thể dục</strong> - Mỗi 45 phút (chống đẩy, gập bụng, squat)</li>
+                        <li>📋 <strong>ClipMD</strong> - Copy Markdown nhanh với Alt+Q</li>
+                    </ul>
+                    <div class="featured-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Chrome API</span>
+                        <span class="tech-tag">Manifest V3</span>
+                    </div>
+                    <div class="featured-links">
+                        <a href="https://github.com/quoctran-2608/MaiZone" target="_blank" class="btn btn-primary">
+                            <span>📂</span> Xem trên GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- More Projects -->
     <section class="more-projects" id="projects">
         <div class="container">
@@ -1011,23 +1132,6 @@
                         <span>🧩</span> Chrome Extensions
                     </h3>
                     
-                    <div class="project-card">
-                        <img src="images/projects/maizone.jpg" alt="MaiZone" class="project-thumb">
-                        <div class="project-badges">
-                            <span class="project-badge ai-badge">🤖 AI Vibecoded</span>
-                        </div>
-                        <h4 class="project-name">MaiZone</h4>
-                        <p class="project-desc">"Do one thing at a time" - Extension chặn sao nhãng bằng Intent Gate (hỏi lý do trước khi vào Facebook/YouTube), Deep Work 40 phút với badge countdown, nhắc thư giãn mỗi 15 phút, nhắc tập thể dục mỗi 45 phút, và ClipMD copy Markdown nhanh.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Chrome API</span>
-                            <span class="tech-tag">Manifest V3</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/quoctran-2608/MaiZone" target="_blank" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-
                     <div class="project-card">
                         <img src="images/projects/scanvui.jpg" alt="ScanVui" class="project-thumb">
                         <div class="project-badges">
