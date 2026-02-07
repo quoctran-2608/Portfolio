@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Trần Duy Quốc | Software Developer Portfolio</title>
     <meta name="description" content="Portfolio của Trần Duy Quốc - Software Developer chuyên về Desktop Apps, Web Apps, AI & Browser Extensions">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +46,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Chặn cuộn ngang toàn trang */
         }
 
         body {
@@ -53,7 +54,8 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Chặn cuộn ngang body */
+            width: 100%;
         }
 
         .container {
@@ -127,6 +129,7 @@
             justify-content: center;
             font-size: 1.1rem;
             transition: all 0.3s ease;
+            margin-left: 16px; /* Cách nút menu một chút */
         }
 
         .theme-toggle:hover {
@@ -142,6 +145,7 @@
             justify-content: center;
             position: relative;
             padding: 120px 24px 80px;
+            overflow: hidden; /* Quan trọng để không bị tràn nền */
         }
 
         .hero::before {
@@ -840,34 +844,144 @@
             background: none;
             border: none;
             color: var(--text-primary);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            z-index: 1001;
         }
 
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- MOBILE RESPONSIVE FIX (ALL-IN-ONE) --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            /* 1. SỬA LỖI THANH CUỘN NGANG & TRÀN MÀN HÌNH */
+            .hero::before {
+                width: 100%; /* Giới hạn width */
+                height: 400px;
+                opacity: 0.5;
+                left: 0;
+                transform: none;
+                filter: blur(80px);
+            }
+            
+            /* Tắt hiệu ứng đẩy khi chạm vào thẻ trên mobile để tránh rung */
+            .project-card:hover, .spotlight-card:hover, .skill-card:hover, .education-card:hover {
+                transform: none;
+                box-shadow: none;
             }
 
+            /* 2. MENU MOBILE */
             .mobile-menu-btn {
                 display: block;
             }
 
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--bg-card);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+                z-index: 1000;
+                border-left: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px;
+                font-size: 1.1rem;
+            }
+
+            /* 3. HERO SECTION */
             .hero {
-                padding: 100px 24px 60px;
+                padding: 100px 20px 40px;
+                min-height: auto;
             }
 
             .hero-avatar {
-                width: 120px;
-                height: 120px;
+                width: 130px;
+                height: 130px;
             }
 
-            .spotlight-grid {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            /* 4. LAYOUT FIX (FocusFlow, MaiZone, Spotlight) */
+            .spotlight-grid,
+            .category-grid,
+            .category-grid.two-columns {
                 grid-template-columns: 1fr;
             }
 
-            .category-grid {
+            .featured-card {
                 grid-template-columns: 1fr;
+                padding: 24px 20px !important; /* Giảm padding ngang */
+                gap: 24px;
+            }
+            
+            /* Sửa nút bấm FocusFlow */
+            .featured-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .featured-links .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+
+            /* 5. ẢNH & CARD */
+            .featured-image img, .spotlight-image, .project-thumb {
+                height: auto;
+                aspect-ratio: 16/9;
+                object-fit: cover;
+                width: 100%;
+            }
+
+            .skill-card, .education-card {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .container {
+                padding: 0 20px;
             }
         }
 
@@ -913,7 +1027,8 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+
     <nav>
         <div class="nav-content">
             <div class="nav-logo">TranQuoc.dev</div>
@@ -924,14 +1039,15 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                🌙
-            </button>
-            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+            <div style="display: flex; align-items: center;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    🌙
+                </button>
+                <button class="mobile-menu-btn" aria-label="Menu" style="margin-left: 15px;">☰</button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <img src="images/Tran-Duy-Quoc2.jpg" alt="Trần Duy Quốc" class="hero-avatar">
@@ -949,7 +1065,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header fade-in">
@@ -963,7 +1078,6 @@
         </div>
     </section>
 
-    <!-- Spotlight Projects -->
     <section class="spotlight" id="spotlight">
         <div class="container">
             <div class="section-header fade-in">
@@ -973,7 +1087,6 @@
             </div>
 
             <div class="spotlight-grid">
-                <!-- HiViewer -->
                 <div class="spotlight-card fade-in">
                     <img src="images/projects/hiviewer.jpg" alt="HiViewer" class="spotlight-image">
                     <div class="spotlight-content">
@@ -993,7 +1106,6 @@
                     </div>
                 </div>
 
-                <!-- CozyKey -->
                 <div class="spotlight-card fade-in">
                     <img src="images/projects/cozykey.jpg" alt="CozyKey" class="spotlight-image">
                     <div class="spotlight-content">
@@ -1013,7 +1125,6 @@
                     </div>
                 </div>
 
-                <!-- SocialWriterAI -->
                 <div class="spotlight-card fade-in">
                     <img src="images/projects/socialwriterai.jpg" alt="SocialWriterAI" class="spotlight-image">
                     <div class="spotlight-content">
@@ -1038,7 +1149,6 @@
         </div>
     </section>
 
-    <!-- Featured Extension -->
     <section class="featured-extension">
         <div class="container">
             <div class="section-header fade-in">
@@ -1079,7 +1189,6 @@
         </div>
     </section>
 
-    <!-- Featured Web App -->
     <section class="featured-webapp">
         <div class="container">
             <div class="section-header fade-in">
@@ -1124,7 +1233,6 @@
         </div>
     </section>
 
-    <!-- More Projects -->
     <section class="more-projects" id="projects">
         <div class="container">
             <div class="section-header fade-in">
@@ -1134,7 +1242,6 @@
             </div>
 
             <div class="category-grid two-columns">
-                <!-- Data & AI -->
                 <div class="category-section fade-in">
                     <h3 class="category-title">
                         <span>🤖</span> Data & AI
@@ -1157,7 +1264,6 @@
                     </div>
                 </div>
 
-                <!-- Extensions -->
                 <div class="category-section fade-in">
                     <h3 class="category-title">
                         <span>🧩</span> Chrome Extensions
@@ -1184,7 +1290,6 @@
         </div>
     </section>
 
-    <!-- Tech Stack -->
     <section class="tech-stack" id="tech">
         <div class="container">
             <div class="section-header fade-in">
@@ -1193,7 +1298,6 @@
                 <p class="section-desc">Năng lực và công nghệ tôi sử dụng</p>
             </div>
 
-            <!-- Special Skills -->
             <div class="skills-special fade-in">
                 <div class="skill-card">
                     <span class="skill-icon">🤖</span>
@@ -1212,7 +1316,6 @@
                 </div>
             </div>
 
-            <!-- Tech Grid -->
             <div class="tech-grid fade-in">
                 <div class="tech-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="tech-icon">
@@ -1266,7 +1369,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
@@ -1294,7 +1396,6 @@
         </div>
     </section>
 
-    <!-- Education -->
     <section class="education" id="education">
         <div class="container">
             <div class="section-header fade-in">
@@ -1322,18 +1423,46 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Made with <span>❤️</span> by Trần Duy Quốc &copy; 2026</p>
     </footer>
 
-    <!-- Scroll to top button -->
     <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
     <script>
+        // Menu Logic
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const overlay = document.querySelector('.menu-overlay');
+        const body = document.body;
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            if (navLinks.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
         // Theme Toggle
         function toggleTheme() {
-            const body = document.body;
             const btn = document.querySelector('.theme-toggle');
             
             if (body.getAttribute('data-theme') === 'light') {
